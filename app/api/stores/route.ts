@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     const { userId } = auth();
 
     const body = await req.json();
-    const { name } = body;
+    const { name }: { name: string } = body;
 
     if (!userId) {
       return new NextResponse("No autorizado", { status: 401 });
