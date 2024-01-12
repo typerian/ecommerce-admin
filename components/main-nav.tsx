@@ -18,6 +18,16 @@ const MainNav = ({
       label: "Configuraciones",
       active: pathname === `/${params.storeId}/settings`,
     },
+    {
+      href: `/${params.storeId}/billboards`,
+      label: "Carteleras",
+      active: pathname === `/${params.storeId}/billboards`,
+    },
+    {
+      href: `/${params.storeId}`,
+      label: "Vista General",
+      active: pathname === `/${params.storeId}`,
+    },
   ];
 
   return (

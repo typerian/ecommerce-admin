@@ -6,6 +6,8 @@ export const PATCH = async (
   req: Request,
   { params }: { params: { storeId: string } }
 ) => {
+  console.log({ "PARAMETROS DE RUTA": params });
+
   try {
     const body = await req.json();
     const { name } = body;
@@ -44,7 +46,11 @@ export const PATCH = async (
   }
 };
 
-export const DELETE = async ({ params }: { params: { storeId: string } }) => {
+export const DELETE = async (
+  req: Request,
+  { params }: { params: { storeId: string } }
+) => {
+  console.log({ "PARAMETROS DE RUTA": params });
   try {
     const { userId } = auth();
 
