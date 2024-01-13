@@ -24,6 +24,16 @@ const MainNav = ({
       active: pathname === `/${params.storeId}/billboards`,
     },
     {
+      href: `/${params.storeId}/categories`,
+      label: "Categorias",
+      active: pathname === `/${params.storeId}/categories`,
+    },
+    {
+      href: `/${params.storeId}/sizes`,
+      label: "Tallas",
+      active: pathname === `/${params.storeId}/sizes`,
+    },
+    {
       href: `/${params.storeId}`,
       label: "Vista General",
       active: pathname === `/${params.storeId}`,

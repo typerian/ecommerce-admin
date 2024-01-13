@@ -6,15 +6,15 @@ import { Separator } from "@/components/ui/separator";
 import { Plus } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
-import { BillboardColumn, columns } from "./columns";
+import { SizeColumn, columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 import ApiList from "@/components/ui/api-list";
 
-interface BillboardClientProps {
-  data: BillboardColumn[];
+interface SizesClientProps {
+  data: SizeColumn[];
 }
 
-const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
+const SizesClient: React.FC<SizesClientProps> = ({ data }) => {
   const router = useRouter();
   const params = useParams();
   console.log(data);
@@ -22,23 +22,21 @@ const BillboardClient: React.FC<BillboardClientProps> = ({ data }) => {
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title={`Carteleras (${data.length})`}
-          description="Gestiona carteleras para tu tienda"
+          title={`Tallas (${data.length})`}
+          description="Gestiona las tallas para tu tienda"
         />
-        <Button
-          onClick={() => router.push(`/${params.storeId}/billboards/new`)}
-        >
+        <Button onClick={() => router.push(`/${params.storeId}/sizes/new`)}>
           <Plus className="mr-2 h-4 w-4" />
           Añadir Nueva
         </Button>
       </div>
       <Separator />
-      <DataTable searchKey="label" columns={columns} data={data} />
-      <Heading title="API" description="Llamadas API para Carteleras" />
+      <DataTable searchKey="name" columns={columns} data={data} />
+      <Heading title="API" description="Llamadas API para Tallas" />
       <Separator />
-      <ApiList entityName="billboards" entityIdName="billboardId" />
+      <ApiList entityName="sizes" entityIdName="sizeId" />
     </>
   );
 };
 
-export default BillboardClient;
+export default SizesClient;
