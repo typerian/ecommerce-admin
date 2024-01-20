@@ -17,7 +17,7 @@ export async function POST(
   req: Request,
   { params }: { params: { storeId: string } }
 ) {
-  const { productIds } = await req.json();
+  const { productIds }: { productIds: string[] } = await req.json();
 
   if (!productIds || productIds.length === 0) {
     return new NextResponse("Los id de los productos son requeridos", {
